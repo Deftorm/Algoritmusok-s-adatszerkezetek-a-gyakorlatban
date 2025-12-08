@@ -12,12 +12,13 @@ namespace Bad_XOR
             Console.WriteLine("Input:");
             //Tesztesetek száma
             int testCases = Convert.ToInt32(Console.ReadLine());
+            if(testCases < 1 || testCases > 20) throw new Exception("Test cases out of bounds (1 ≤ T ≤ 20)");
             for (int i = 0; i < testCases; i++)
             {
                 //DP tömb a dinamikus programozáshoz
                 //DP[i] azt tárolja, hogy hány DARAB részhalmaz van, aminek az XOR értéke i
                 //Mivel minden érték 0-val lesz inicalizálva, elég lesz majd mindig ++-al növelni XOR értékű indexen.
-                long[] DP = new long[1024];
+                long[] DP = new long[10010];
                 //DP[0] = 1 azért, mert az üres részhalmaz XOR értéke 0
                 DP[0] = 1;
                 //Minden teszteset első sora két egész számot tartalmaz: N és M (0 ≤ N, M ≤ 1000).
